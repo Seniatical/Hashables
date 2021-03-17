@@ -16,24 +16,33 @@ class Dict:
     def __format__(self, cls):
         return self.__repr__()
 
+    def items(self):
+    	return self.dict.items()
+
     def __add__(self, other):
         allowed = [Dict, dict, list, tuple, set]
         if type(other) not in allowed:
             raise TypeError('Object to add must derive from %s class not [%s]' % ([str(i).split()[-1][1:-2] for i in allowed], other.__class__.__name__))
         to_add = None
-        if type(other) == dict:
+        if type(other) in [Dict, dict]:
             to_add = list(other.items())
         elif type(other) in [tuple, list, set]:
             for item in other:
                 if type(item) in [tuple, list, set]:
                     if len(item) < 2:
-                        raise BadArgument('item #%s key and pair value is too small' % (other.index(item) + 1))
+                        raise BadArguement('item #%s key and pair value is too small' % (other.index(item) + 1))
                     elif len(item) > 2:
-                        raise BadArgument('item #%s key and pair value is too large' % (other.index(item) + 1))
+                        raise BadArguement('item #%s key and pair value is too large' % (other.index(item) + 1))
                 else:
-                    raise BadArgument('item #%s is not of satisfactory typing' % (other.index(item) + 1))
+                    raise BadArguement('item #%s is not of satisfactory typing' % (other.index(item) + 1))
             to_add = other
-        print(to_add)
+
+        temp = list(self.dict.items())
+        for item in to_add:
+        	temp.append(item)
+        self.dict = dict(temp)
+        return self.dict
 
 new = Dict(dict={1: 2, 3: 4})
-new + ([1, 2],)
+new + Dict(y=10, x=5)
+print(new)
