@@ -1,6 +1,7 @@
 from .errors import (BadArgument,)
 
 class Dict:
+    
     def __init__(self, **_dict):
         if 'dict' in _dict:
             self.dict = _dict['dict']
@@ -15,6 +16,29 @@ class Dict:
 
     def __format__(self, cls):
         return self.__repr__()
+
+    def __getitem__(self, key):
+        return self.dict[key]
+
+    def __setitem__(self, key, value):
+        self.dict[key] = value
+        return self.dict
+
+    def __delitem__(self, key):
+        del self.dict[key]
+
+    def __len__(self):
+        return len(self.keys())
+
+    def __contains__(self, key):
+        return key in self.dict
+
+    def __call__(self, key = None):
+        if key:
+            if key not in self.dict:
+                return None
+            return self.dict[key]
+        return self.dict
 
     def items(self):
         return self.dict.items()
