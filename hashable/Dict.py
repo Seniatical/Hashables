@@ -1,11 +1,11 @@
 from .errors import (BadArgument,)
 
 class Dict:
-    def __init__(self, **dict):
-        if 'dict' in dict:
-            self.dict = dict['dict']
+    def __init__(self, **_dict):
+        if 'dict' in _dict:
+            self.dict = _dict['dict']
         else:
-            self.dict = dict
+            self.dict = _dict
 
     def __repr__(self):
         return '<Hashable Dict [{}]>'.format(self.dict)
@@ -17,7 +17,59 @@ class Dict:
         return self.__repr__()
 
     def items(self):
-    	return self.dict.items()
+        return self.dict.items()
+
+    def clear(self):
+        self.dict = {}
+        return self.dict
+
+    def keys(self):
+        return self.dict.keys()
+
+    def values(self):
+        return self.dict.values()
+
+    def pop(self, key):
+        value = self.dict[key]
+        del self.dict[key]
+        return value
+
+    def fromkeys(self, iterable, values = None):
+        if type(iterable) in [Dict, dict]:
+            iterable = iterable.keys()
+            values = values or iterable.values()
+        else:
+            iter(iterable)  ## Prevents stupid moves
+        for i in range(len(iterable)):
+            try:
+                self.dict[iterable[i]] = values[i]
+            except KeyError:
+                self.dict[iterable[i]] = None
+
+    def sort(self):
+        sorted_keys = sorted(self.dict, key=lambda key: str(key))
+        temp = {}
+        for key in sorted_keys:
+            temp[key] = self.dict[key]
+        self.dict = temp
+        return self.dict
+
+    def get_key(self, value):
+        reversed = {v: k for k, v in self.dict.items()}
+        return reversed[value]
+
+    def get(self, key):
+        if key not in self.dict:
+            return None
+        return self.dict[key]
+
+    def value_sort(self):
+        sorted_keys = sorted(self.dict.values())
+        temp = {}
+        for key in sorted_keys:
+            temp[self.get_key(key)] = key
+        self.dict = temp
+        return self.dict
 
     def __add__(self, other):
         allowed = [Dict, dict, list, tuple, set]
@@ -39,10 +91,6 @@ class Dict:
 
         temp = list(self.dict.items())
         for item in to_add:
-        	temp.append(item)
+            temp.append(item)
         self.dict = dict(temp)
         return self.dict
-
-new = Dict(dict={1: 2, 3: 4})
-new + Dict(y=10, x=5)
-print(new)
