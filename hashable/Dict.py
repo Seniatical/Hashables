@@ -67,7 +67,7 @@ class Dict:
         for i in range(len(iterable)):
             try:
                 self.dict[iterable[i]] = values[i]
-            except KeyError:
+            except (KeyError, AttributeError):
                 self.dict[iterable[i]] = None
 
     def sort(self):
