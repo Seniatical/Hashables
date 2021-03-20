@@ -20,9 +20,6 @@ setuptools.setup(
         'Intended Audience :: Developers',
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
-        'Topic :: Internet',
-        'Topic :: Software Development :: Libraries',
-        'Topic :: Software Development :: Libraries :: Python Modules',
         'Topic :: Utilities',
 
     ],
