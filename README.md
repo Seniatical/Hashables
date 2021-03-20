@@ -13,7 +13,7 @@ pip install -U git+https://github.com/Seniatical/Hashize.git
 # Examples
 
 ```py
->>> from Hashize.hashize import Dict
+>>> from hashize import Dict
 >>> new = Dict({'name': 'John', 'age': 20})
 >>> new + {'job': 'Builder'}
 {'name': 'John', 'age': 20, 'job': 'Builder'}
