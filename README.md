@@ -7,7 +7,7 @@ An extension of python's data types which makes more flexible and nicer to work 
 
 Right now, the best way to install is by using git to install it directly:
 ```bash
-pip install -U git+https://github.com/Seniatical/Hashize.git
+pip install git+https://github.com/Seniatical/Hashize
 ```
 
 # Examples
