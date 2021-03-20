@@ -56,7 +56,7 @@ class Dict:
         del self.dict[key]
 
     def __len__(self):
-        return len(list(self.keys()))
+        return len(self.keys())
 
     def __contains__(self, key):
         if type(key) in [list, tuple]:
@@ -65,13 +65,13 @@ class Dict:
             return value == sub_dict[key[0]]
         
         if type(key) == dict:
-            new_value = list(key.values())[0]
-            new_key = list(key.keys())[0]
+            new_value = key.values()[0]
+            new_key = key.keys()[0]
             return self.get(new_key) == new_value
 
         if type(key) == Dict:
-            new_key = list(key.keys())[0]
-            new_value = list(key.values())[0]
+            new_key = key.keys()[0]
+            new_value = key.values()[0]
             return self.get(new_key) == new_value
             
         return key in self.dict
