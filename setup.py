@@ -9,7 +9,7 @@ classifiers = [
 ]
 
 setup(
-  name='MechaK.py',
+  name='Hashize',
   version='0.0.1',
   description='Python Data Types Rewritten!',
     
@@ -24,7 +24,7 @@ setup(
   author='Seniatical',
   license='MIT', 
   classifiers=classifiers,
-  keywords='API,Wrapper', 
+  keywords='Data-Types', 
   packages=find_packages(),
   install_requires=[''] 
 )
