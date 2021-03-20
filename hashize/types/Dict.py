@@ -15,7 +15,7 @@ class Dict:
                 self.dict = dict(args)
 
     def __repr__(self):
-        return 'HashableDict([{}])'.format(self.dict)
+        return 'HashizeDict([{}])'.format(self.dict)
 
     def __str__(self):
         return str(self.dict)
