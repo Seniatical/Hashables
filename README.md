@@ -1,7 +1,7 @@
 # Hashables
 
 Rewriting basic python data types, allowing you to do many new things with them which will make your life easier!
-An extension of python's dictionaries that allow you to do things such as: 
+An extension of python's dictionaries that allow you to do things such as:  &nbsp;
 
 put shit here isa
 
@@ -32,7 +32,7 @@ pip install -U git+https://github.com/Seniatical/Hashize.git
 ```
 
 # License
-This project is licensed under the: **isa license**
+This project is licensed under the: **isa license** &nbsp;
 ** More isa license conditions here **
 
 
