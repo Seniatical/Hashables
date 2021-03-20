@@ -15,7 +15,7 @@ class Dict:
                 self.dict = dict(args)
 
     def __repr__(self):
-        return 'HashizeDict([{}])'.format(self.dict)
+        return 'HashableDict([{}])'.format(self.dict)
 
     def __str__(self):
         return str(self.dict)
@@ -55,7 +55,7 @@ class Dict:
         del self.dict[key]
 
     def __len__(self):
-        return len(self.keys())
+        return len(list(self.keys()))
 
     def __contains__(self, key):
         if type(key) in [list, tuple]:
@@ -94,6 +94,20 @@ class Dict:
             return self.dict != other
         elif type(other) == Dict:
             return self.dict != other.dict
+        raise TypeError('cannot compare %s with type dict' % other.__class__.__name__)
+
+    def __gt__(self, other):
+        if type(other) == dict:
+            return self.__len__() > len(list(other.keys()))
+        elif type(other) == Dict:
+            return self.__len__() > len(other)
+        raise TypeError('cannot compare %s with type dict' % other.__class__.__name__)
+
+    def __lt__(self, other):
+        if type(other) == dict:
+            return self.__len__() < len(list(other.keys()))
+        elif type(other) == Dict:
+            return self.__len__() < len(other)
         raise TypeError('cannot compare %s with type dict' % other.__class__.__name__)
 
     def __add__(self, other):
@@ -223,5 +237,3 @@ class Dict:
                 else:
                     return new_key
         raise IndexError('Cannot find %s in the dict sequence' % value)
-
-new = Dict(dict={'name': 'John', 'gender': 'Male'})
