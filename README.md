@@ -19,7 +19,7 @@ pip install -U git+https://github.com/Seniatical/Hashize.git
 {'name': 'John', 'age': 20, 'job': 'Builder'}
 >>> new['job'] = 'Employer'
 >>> new
-HashableDict([{'name': 'John', 'age': 20, 'job': 'Employer'}])
+HashizeDict([{'name': 'John', 'age': 20, 'job': 'Employer'}])
 >>> new.index(20)
 {'index': 1, 'value': 'age'}
 >>> new[1]
