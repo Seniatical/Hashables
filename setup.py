@@ -1,7 +1,7 @@
 import setuptools
 
-with open("README.md", "r", encoding="utf-8") as readme_file:
-    desc = readme_file.read()
+with open("README.md", "r", encoding="utf-8") as file:
+    desc = file.read()
 
 setuptools.setup(
   
