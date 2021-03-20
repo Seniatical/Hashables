@@ -1,4 +1,5 @@
 from ..errors import (BadArgument,)
+from ..models.dict import (DictKeySet, DictValueSet, DictItemSet)
 
 class Dict:
     
@@ -121,11 +122,11 @@ class Dict:
             for item in other:
                 if type(item) in [tuple, list]:
                     if len(item) < 2:
-                        raise BadArguement('item #%s key and pair value is too small' % (other.index(item) + 1))
+                        raise BadArgument('item #%s key and pair value is too small' % (other.index(item) + 1))
                     elif len(item) > 2:
-                        raise BadArguement('item #%s key and pair value is too large' % (other.index(item) + 1))
+                        raise BadArgument('item #%s key and pair value is too large' % (other.index(item) + 1))
                 else:
-                    raise BadArguement('item #%s is not of satisfactory typing' % (other.index(item) + 1))
+                    raise BadArgument('item #%s is not of satisfactory typing' % (other.index(item) + 1))
             to_add = other
 
         temp = list(self.dict.items())
@@ -142,13 +143,13 @@ class Dict:
         return self.dict
 
     def keys(self):
-        return self.dict.keys()
+        return DictKeySet(list(self.dict.keys()))
 
     def values(self):
-        return self.dict.values()
+        return DictValueSet(list(self.dict.values()))
 
     def items(self):
-        return self.dict.items()
+        return DictItemSet(list(self.dict.items()))
 
     def pop(self, key, is_index = False, is_key = True):
         if is_index:
