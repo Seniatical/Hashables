@@ -1,9 +1,7 @@
 # Hashize
 
 Rewriting basic python data types, allowing you to do many new things with them which will make your life easier!
-An extension of python's dictionaries that allow you to do things such as:  &nbsp;
-
-put shit here isa
+An extension of python's data types which makes more flexible and nicer to work with;
 
 # Installation
 
@@ -15,24 +13,30 @@ pip install -U git+https://github.com/Seniatical/Hashize.git
 # Examples
 
 ```py
+>>> from Hashize.hashize import Dict
+>>> new = Dict({'name': 'John', 'age': 20})
+>>> new + {'job': 'Builder'}
+{'name': 'John', 'age': 20, 'job': 'Builder'}
+>>> new['job'] = 'Employer'
 >>> new
-<Hashable Dict [{'name': 'John', 'gender': 'Male'}]>
->>> new + {'age': 20}
-{'name': 'John', 'gender': 'Male', 'age': 20}
->>> new['age']
+HashableDict([{'name': 'John', 'age': 20, 'job': 'Employer'}])
+>>> new.index(20)
+{'index': 1, 'value': 'age'}
+>>> new[1]
 20
 >>> new[1:]
-{'gender': 'Male', 'age': 20}
->>> new[1]
-'Male'
->>> new.fromkeys(['job', 'salary'], values=['Employee', 25000])
->>> new
-<Hashable Dict [{'name': 'John', 'gender': 'Male', 'age': 20, 'job': 'Employee', 'salary': 25000}]>
+{'age': 20, 'job': 'Employer'}
+>>> for key, value in new.items():
+	print(key, ' = ', value)
+
+	
+name  =  John
+age  =  20
+job  =  Employer
 >>> 
 ```
 
 # License
-This project is licensed under the: **isa license** &nbsp;
-** More isa license conditions here **
+Using the MIT License
 
 
