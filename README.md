@@ -3,8 +3,14 @@
 Rewriting basic python data types, allowing you to do many new things with them which will make your life easier!
 An extension of python's dictionaries that allow you to do things such as: 
 
-> Accessing values with a index
-> Adding things from keys
+put shit here isa
+
+# Installation
+
+Right now, the best way to install is by using git to install it directly:
+```bash
+pip install -U git+https://github.com/Seniatical/Hashize.git
+```
 
 # Examples
 
@@ -24,3 +30,9 @@ An extension of python's dictionaries that allow you to do things such as:
 <Hashable Dict [{'name': 'John', 'gender': 'Male', 'age': 20, 'job': 'Employee', 'salary': 25000}]>
 >>> 
 ```
+
+# License
+This project is licensed under the: **isa license**
+** More isa license conditions here **
+
+
