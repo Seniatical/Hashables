@@ -4,7 +4,7 @@ classifiers = [
   'Development Status :: 5 - Production/Stable',
   'Intended Audience :: Developers',
   'Operating System :: OS Independent',
-  'License :: OSI Approved :: Apache License',
+  'License :: OSI Approved :: MIT License',
   'Programming Language :: Python :: 3'
 ]
 
@@ -22,7 +22,7 @@ setup(
    },
     
   author='Seniatical',
-  license='Apache', 
+  license='MIT', 
   classifiers=classifiers,
   keywords='API,Wrapper', 
   packages=find_packages(),
