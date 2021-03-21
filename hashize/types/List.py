@@ -207,6 +207,9 @@ class List:
 
 		raise TypeError('Cannot compare type %s with type List' % other.__class__.__name__)
 
+	def __contains__(self, other):
+		return other in self.list
+
 	def remove_many(*values):
 		for value in values:
 			try:
@@ -276,3 +279,4 @@ class List:
 	@property
 	def dupes(self):
 		return self.__len__() - self.__set__()
+	
